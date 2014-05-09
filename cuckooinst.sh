@@ -3,4 +3,28 @@
 #more information can be found in teh cuckoo change log. 
 #built by Theory5 on 5/9/14
 #Use as you please, just give credit to the cuckoo guys and myself. (Cuckoo gets top billing, obviously).
+#This install assumes that you only have a bare ubuntu or debian install
+
+apt-get -y update
+apt-get -y dist-upgrade
+
+apt-get -y install libpcap0.8 libpcap0.8-dev libpcap-dev autogen gcc make libxml2-dev libgnutls-dev libcurl4-gnutls-dev python-dev libnl-dev build-essential autopoint xsltproc w3c-dtd-xhtml python-dev libxen-dev uuid-dev libdevmapper-dev python-dev libcurl4-gnutls-dev libnl-dev libgnutls-dev libpciaccess-dev libxml2-dev pm-utils ebtables
+
+#install git, separated for easier reading
+
+apt-get -y install git git-core
+
+#cd to main dir and create working folder
+
+cd
+
+mkdir cuckooinst
+
+cd cuckooinst
+
+#clone cuckoo & libvirt
+
+git clone --recursive https://github.com/cuckoobox/cuckoo.git cuckoo
+
+git clone --recursive git://libvirt.org/libvirt.git libvirt
 
