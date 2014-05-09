@@ -29,6 +29,7 @@ git clone --recursive https://github.com/cuckoobox/cuckoo.git cuckoo
 git clone --recursive git://libvirt.org/libvirt.git libvirt
 
 #build libvirt first for obvious reasons
+#we could just do apt-get install libvirt-bin and libvirt-dev but debian has ESX support disabled, so we will build it with support for what we need
 
 cd libvirt
 
