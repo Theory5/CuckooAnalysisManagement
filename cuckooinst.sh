@@ -28,3 +28,10 @@ git clone --recursive https://github.com/cuckoobox/cuckoo.git cuckoo
 
 git clone --recursive git://libvirt.org/libvirt.git libvirt
 
+#build libvirt first for obvious reasons
+
+cd libvirt
+
+#runs ./configure with support for ESX and KVM/QEMU
+
+./autogen.sh --with-esx
