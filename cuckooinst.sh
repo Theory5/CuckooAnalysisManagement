@@ -8,11 +8,21 @@
 apt-get -y update
 apt-get -y dist-upgrade
 
-apt-get -y install libpcap0.8 libpcap0.8-dev qemu-kvm  libpcap-dev autogen gcc make libxml2-dev libgnutls-dev libcurl4-gnutls-dev python-dev libnl-dev build-essential autopoint xsltproc w3c-dtd-xhtml python-dev libxen-dev uuid-dev libdevmapper-dev python-dev libcurl4-gnutls-dev libnl-dev libgnutls-dev libpciaccess-dev libxml2-dev pm-utils ebtables
+apt-get -y install libpcap0.8 libpcap0.8-dev libpcap-dev autogen gcc make libxml2-dev libgnutls-dev libcurl4-gnutls-dev python-dev libnl-dev build-essential autopoint xsltproc w3c-dtd-xhtml python-dev libxen-dev uuid-dev libdevmapper-dev python-dev libcurl4-gnutls-dev libnl-dev libgnutls-dev libpciaccess-dev libxml2-dev pm-utils ebtables
 
 #install git, separated for easier reading
 
 apt-get -y install git git-core
+
+#install libvirt, KVM, and other packages necessary for KVM usage
+
+apt-get install qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils
+
+#install libvirt and dependencies
+
+apt-get build-dep libvirt-bin libvirt-dev
+
+apt-get install libvirt-bin libvirt-dev
 
 #cd to main dir and create working folder
 
@@ -22,17 +32,7 @@ mkdir cuckooinst
 
 cd cuckooinst
 
-#clone cuckoo & libvirt
-
+#clone cuckoo
 git clone --recursive https://github.com/cuckoobox/cuckoo.git cuckoo
 
-git clone --recursive git://libvirt.org/libvirt.git libvirt
 
-#build libvirt first for obvious reasons
-#we could just do apt-get install libvirt-bin and libvirt-dev but debian has ESX support disabled, so we will build it with support for what we need
-
-cd libvirt
-
-#runs ./configure with support for ESX and KVM/QEMU
-
-./autogen.sh --with-esx
