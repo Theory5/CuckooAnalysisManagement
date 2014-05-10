@@ -6,7 +6,7 @@
 #This install assumes that you only have a bare ubuntu or debian install
 
 apt-get -y update
-apt-get -y dist-upgrade
+
 
 apt-get -y install libpcap0.8 libpcap0.8-dev libpcap-dev autogen gcc make libxml2-dev libgnutls-dev libcurl4-gnutls-dev python-dev libnl-dev build-essential autopoint xsltproc w3c-dtd-xhtml python-dev libxen-dev uuid-dev libdevmapper-dev python-dev libcurl4-gnutls-dev libnl-dev libgnutls-dev libpciaccess-dev libxml2-dev pm-utils ebtables
 
