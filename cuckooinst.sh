@@ -23,11 +23,21 @@ apt-get -y install git git-core
 #https://help.ubuntu.com/community/KVM/Installation
 apt-get install qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils
 
+#install MORE cuckoo dependencies (these are optional)
+
+apt-get install python-dpkt python-jinja2 python-magic python-pymongo python-gridfs python-libvirt python-bottle python-pefile python-chardet
+
 #install libvirt and dependencies. If you are using ESX YOU MUST BUILD LIBVIRT YOURSELF, DO NOT USE THESE
 
 apt-get build-dep libvirt-bin libvirt-dev
 
 apt-get install libvirt-bin libvirt-dev
+
+#use pip to install bottle, Sqlalchemy
+
+pip install sqlalchemy bson
+
+pip install jinja2 pymongo bottle pefile maec==4.0.1.0 django chardet
 
 #cd to main dir and create working folder
 
