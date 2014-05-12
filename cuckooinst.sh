@@ -21,7 +21,7 @@ apt-get -y install git git-core
 
 #install libvirt, KVM, and other packages necessary for KVM usage
 #https://help.ubuntu.com/community/KVM/Installation
-apt-get install qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils
+apt-get -y install qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils
 
 #install MORE cuckoo dependencies (these are optional)
 
@@ -31,7 +31,11 @@ apt-get install python-dpkt python-jinja2 python-magic python-pymongo python-gri
 
 apt-get build-dep libvirt-bin libvirt-dev
 
-apt-get install libvirt-bin libvirt-dev
+apt-get -y install libvirt-bin libvirt-dev
+
+#Install TCPDUMP
+
+sudo apt-get -y install tcpdump
 
 #use pip to install bottle, Sqlalchemy
 
