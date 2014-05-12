@@ -37,6 +37,12 @@ apt-get -y install libvirt-bin libvirt-dev
 
 sudo apt-get -y install tcpdump
 
+#setup configuration for TCPDUMP to run without needing root
+
+setcap cap_net_raw,cap_net_admin=eip /usr/sbin/tcpdump
+
+#you can verify this last command by running: getcap /usr/sbin/tcpdump
+
 #use pip to install bottle, Sqlalchemy
 
 pip install sqlalchemy bson
