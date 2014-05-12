@@ -18,7 +18,7 @@ apt-get -y install git git-core
 #https://help.ubuntu.com/community/KVM/Installation
 apt-get install qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils
 
-#install libvirt and dependencies
+#install libvirt and dependencies. If you are using ESX YOU MUST BUILD LIBVIRT YOURSELF, DO NOT USE THESE
 
 apt-get build-dep libvirt-bin libvirt-dev
 
