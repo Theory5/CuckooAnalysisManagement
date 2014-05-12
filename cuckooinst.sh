@@ -60,4 +60,8 @@ cd cuckooinst
 #clone cuckoo
 git clone --recursive https://github.com/cuckoobox/cuckoo.git cuckoo
 
+#back to root
 
+cd
+
+ 
