@@ -15,7 +15,7 @@ apt-get -y install libpcap0.8 libpcap0.8-dev libpcap-dev autogen gcc make libxml
 apt-get -y install git git-core
 
 #install libvirt, KVM, and other packages necessary for KVM usage
-
+#https://help.ubuntu.com/community/KVM/Installation
 apt-get install qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils
 
 #install libvirt and dependencies
