@@ -1,7 +1,7 @@
 #This is a cuckoo installation bash script, designed to make my life easier by automating a large portion of the cuckoo install
 #This install script Is to be used on ubuntu server 12.04.4, has not been tested on a 14.04 install. 
 #more information can be found in teh cuckoo change log. 
-#built by Theory5 on 5/9/14
+#built by Theory5 on 5/9/14 with a LOT of help from April and Ziggy.
 #Use as you please, just give credit to the cuckoo guys and myself. (Cuckoo gets top billing, obviously).
 #This install assumes that you only have a bare ubuntu or debian install
 
@@ -32,6 +32,20 @@ apt-get install python-dpkt python-jinja2 python-magic python-pymongo python-gri
 apt-get build-dep libvirt-bin libvirt-dev
 
 apt-get -y install libvirt-bin libvirt-dev
+
+read -p "Since the last thing we want to do is run Cuckoo Sandbox as root, please enter a username to run cuckoo as (Hit enter to use cuckoo):" NAME
+	echo "You Have Selected ${NAME:=cuckoo}. Really? You're choosing ${NAME}? Your choice..."
+	
+	if [ "$NAME" == "root" ]; then
+		echo "root is not allowed"
+
+		elif ! grep -q "^${NAME}:" /etc/passwd && $? -eq 1; then
+			echo "sorry, that username is already taken. Please pick another."
+
+else		sudo adduser ${NAME}
+		sudo groupadd -f libvirtd
+		sudo usermod -G libvirtd ${NAME}
+fi
 
 #Install TCPDUMP
 
