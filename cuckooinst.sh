@@ -47,15 +47,31 @@ else		sudo adduser ${NAME}
 		sudo usermod -G libvirtd ${NAME}
 fi
 
-#Install TCPDUMP
-
+read -p "Do you wish to install and use an external sniffer (TCPDUMP) with Cuckoo? Yes/No" CHOICE
+case $CHOICE in
+ 
+yes)
+ 
+echo "Installing and Configuring tcpdump, please wait"
 sudo apt-get -y install tcpdump
-
-#setup configuration for TCPDUMP to run without needing root
-
+echo "Will now run command to ensure you can run tcpdump as non-root user"
 setcap cap_net_raw,cap_net_admin=eip /usr/sbin/tcpdump
-
-#you can verify this last command by running: getcap /usr/sbin/tcpdump
+echo "Verifying setcap command worked. Please Wait"
+OUTPUT=$(getcap /usr/sbin/tcpdump)
+ 
+if [ "$OUTPUT" = "/usr/sbin/tcpdump = cap_net_admin,cap_net_raw+eip" ];then
+echo "You are good to go!"
+else echo "Installation Failed, please retry as sudo."
+fi
+;;
+ 
+no)
+ 
+echo "Tcpdump will not be installed or configured. You have been warned."
+ 
+;;
+ 
+esac
 
 #use pip to install bottle, Sqlalchemy
 
