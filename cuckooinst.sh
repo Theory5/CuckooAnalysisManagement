@@ -33,7 +33,7 @@ apt-get build-dep libvirt-bin libvirt-dev
 
 apt-get -y install libvirt-bin libvirt-dev
 
-read -p "Since the last thing we want to do is run Cuckoo Sandbox as root, please enter a username to run cuckoo as (Hit enter to use cuckoo):" NAME
+read -p "Since the last thing we want to do is run Cuckoo Sandbox as root, please enter a username to run cuckoo under(Press Enter For cuckoo):" NAME
 	echo "You Have Selected ${NAME:=cuckoo}. Really? You're choosing ${NAME}? Your choice..."
 	
 	if [ "$NAME" == "root" ]; then
