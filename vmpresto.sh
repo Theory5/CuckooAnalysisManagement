@@ -35,7 +35,7 @@ read -p "Please specify a CD or ISO location:" VAR4
 read -p "Do you want to attempt to autoconnect to the vnc server on the guest? Y/n" VAR5
 
 if [ $VAR5 != "Y"];then
-  VAR6=$(--noautoconsole)
+  VAR6="--noautoconsole"
 fi
 
 read -p "Please enter the OS type:"
