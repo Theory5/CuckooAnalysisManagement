@@ -43,6 +43,7 @@ until [ -n "${VAR7}" ]; do read -p "Please enter a location:" VAR7; done
 read -p "Please enter the virtual network bridge:"
 until [ -n "${VAR8}" ]; do read -p "Please enter a location:" VAR8; done
 
+#--hvm is for overriding the default virtualization choice. This requests full virtualization. DONT ATTEMPT TO USE GUESTS WITH CUCKOO IF THIS OPTION IS REMOVED!!!!
 sudo virt-install --connect qemu:///system -n ${VAR1} -r ${VAR2} --vcpus=2 --disk path=/var/lib/libvirt/images/${VAR1}.img \
 size=${VAR3} -c ${VAR4} --vnc ${VAR6} --os-type ${VAR7} --accelerate --${VAR8} --hvm 
 
