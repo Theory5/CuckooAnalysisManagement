@@ -21,3 +21,4 @@ read -p "Please specify the amount of RAM you wish to allocate to your VM (In MB
 until [ -n "${VAR2}" ]; do read -p "Please enter a number:" VAR2; done
 
 
+sudo virt-install --connect qemu:///system -n ${VAR1} -r ${VAR2} --vcpus=2 --disk path=/var/lib/libvirt/images/vm10.img,size=12 -c /dev/cdrom --vnc --noautoconsole --os-type linux --accelerate --network=bridge:br0 --hvm 
