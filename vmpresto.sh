@@ -33,7 +33,7 @@ until [ -n "${VAR4}" ]; do read -p "Please enter a location:" VAR4; done
 #read -p "This script is specifying the graphical option "--vnc" which means it opens a VNC server on the first free port 5900 or above" [ENTER] 
 
 read -p "Do you want to attempt to autoconnect to the vnc server on the guest? Y/n" $VAR5
-if [ VAR5 != "Y"];then
+if [ $VAR5 != "Y"];then
 VAR6=$(--noautoconsole)
 fi
 
