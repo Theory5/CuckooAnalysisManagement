@@ -6,11 +6,9 @@
 
 #!/bin/bash
 
-#ask for name
-read -p "Please specify name of system:" SYSN
 
-
-sudo virt-install --connect qemu:///system -n vm10 -r 512 --vcpus=2 --disk path=/var/lib/libvirt/images/vm10.img,size=12 -c /dev/cdrom --vnc --noautoconsole --os-type linux --accelerate --network=bridge:br0 --hvm 
+#COmmand for Dev purposes
+#sudo virt-install --connect qemu:///system -n vm10 -r 512 --vcpus=2 --disk path=/var/lib/libvirt/images/vm10.img,size=12 -c /dev/cdrom --vnc --noautoconsole --os-type linux --accelerate --network=bridge:br0 --hvm 
 
 #until loop to ensure all variables have values entered
 
