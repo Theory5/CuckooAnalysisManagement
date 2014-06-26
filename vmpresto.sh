@@ -27,6 +27,12 @@ read -p  "Also, this script will create a virtual hard drive in /var/lib/libvirt
 read -p "Please specify the size of disk ${VAR1} in Gigabytes:" VAR3
   until [ -n "${VAR3}" ]; do read -p "Please enter a number:" VAR3; done
 
+read -p "Here is a list of all .iso files within the /home/ directory for memory purposes."
+
+updatedb
+
+locate *.iso
+
 read -p "Please specify a CD or ISO location:" VAR4
   until [ -n "${VAR4}" ]; do read -p "Please enter a location:" VAR4; done
 
