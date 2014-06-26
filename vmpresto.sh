@@ -20,9 +20,9 @@ read -p "Please specify name of VM being created:" VAR1
 read -p "Please specify the amount of RAM you wish to allocate to your VM (In MB's):" VAR2
   until [ -n "${VAR2}" ]; do read -p "Please enter a number:" VAR2; done
 
-read -p "For all intents and purposes, this script will pretend you can spare 2 cores." [ENTER]
+read -p "For all intents and purposes, this script will pretend you can spare 2 cores."
 
-read -p  "Also, this script will create a virtual hard drive in /var/lib/libvirt/images/${VAR1}.img" [ENTER]
+read -p  "Also, this script will create a virtual hard drive in /var/lib/libvirt/images/${VAR1}.img"
 
 read -p "Please specify the size of disk ${VAR1} in Gigabytes:" VAR3
   until [ -n "${VAR3}" ]; do read -p "Please enter a number:" VAR3; done
