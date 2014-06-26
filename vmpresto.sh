@@ -32,7 +32,7 @@ read -p "Please specify a CD or ISO location:" VAR4
 
 #read -p "This script is specifying the graphical option "--vnc" which means it opens a VNC server on the first free port 5900 or above" [ENTER] 
 
-read -p "Do you want to attempt to autoconnect to the vnc server on the guest? Y/n" VAR5=${VAR5:="Y"}
+read -p "Do you want to attempt to autoconnect to the vnc server on the guest? Y/n" VAR5=${VAR5:-"Y"}
 
 if [ ${VAR5^^} != "Y"];then
   VAR6="--noautoconsole"
