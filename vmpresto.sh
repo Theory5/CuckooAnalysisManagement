@@ -38,7 +38,7 @@ read -p "Please specify a CD or ISO location:" VAR4
 
 #read -p "This script is specifying the graphical option "--vnc" which means it opens a VNC server on the first free port 5900 or above" [ENTER] 
 
-read -p "Do you want to attempt to autoconnect to the vnc server on the guest? Y/n" VAR5
+read -p "Do you want to attempt to autoconnect to the vnc server on the guest? (Y/n):" VAR5
 
 VAR5=${VAR5:-"Y"}
 
@@ -46,10 +46,10 @@ if [ ${VAR5^^} != "Y"];then
   VAR6="--noautoconsole"
 fi
 
-read -p "Please enter the OS type:"
+read -p "Please enter the OS type:" VAR7
   until [ -n "${VAR7}" ]; do read -p "Please enter on OS type:" VAR7; done
 
-read -p "Please enter the virtual network bridge:"
+read -p "Please enter the virtual network bridge:" VAR8
   until [ -n "${VAR8}" ]; do read -p "Please enter the name of the bridge:" VAR8; done
 
 #--hvm is for overriding the default virtualization choice. This requests full virtualization. DONT ATTEMPT TO USE GUESTS WITH CUCKOO IF THIS OPTION IS REMOVED!!!!
