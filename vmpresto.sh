@@ -38,13 +38,6 @@ read -p "Please specify a CD or ISO location:" VAR4
 
 #read -p "This script is specifying the graphical option "--vnc" which means it opens a VNC server on the first free port 5900 or above" [ENTER] 
 
-read -p "Do you want to attempt to autoconnect to the vnc server on the guest? (Y/n):" VAR5
-
-VAR5=${VAR5:-"Y"}
-
-if [ ${VAR5^^} != "Y"];then
-  VAR6="--noautoconsole"
-fi
 
 read -p "Please enter the OS type:" VAR7
   until [ -n "${VAR7}" ]; do read -p "Please enter on OS type:" VAR7; done
@@ -54,5 +47,5 @@ read -p "Please enter the virtual network bridge:" VAR8
 
 #--hvm is for overriding the default virtualization choice. This requests full virtualization. DONT ATTEMPT TO USE GUESTS WITH CUCKOO IF THIS OPTION IS REMOVED!!!!
 sudo virt-install --connect qemu:///system -n ${VAR1} -r ${VAR2} --vcpus=2 --disk path=/var/lib/libvirt/images/${VAR1}.img,size=${VAR3} \
--c ${VAR4} --vnc ${VAR6} --os-type ${VAR7} --accelerate --network=${VAR8} --hvm 
+-c ${VAR4} --vnc --noautoconsole --os-type ${VAR7} --accelerate --network=${VAR8} --hvm 
 
